@@ -25,18 +25,7 @@ class Program
     static void del_even_del_odd(ref string s)
 
     {
-        string res = "";
-        if (s.Length % 2 != 0)
-        {
-            for (int i = 0; i < s.Length; i++) if (i != (s.Length - 1) / 2) res += s[i];
-        }
-        else
-        {
-
-            for (int i = 0; i < s.Length; i++) if (i != (s.Length - 1) / 2 && i != (s.Length) / 2) res += s[i];
-
-        }
-        s = res;
+        s= s.Remove(s.Length / 2 - 1 + s.Length % 2, 2 - (s.Length%2));
     }
     public static void Main()
     {
@@ -55,6 +44,7 @@ class Program
         Console.WriteLine(s1);
         Console.WriteLine("Введите строку, в которой нужно удалить два средних символа если она четная и один если нет");
         string s2 = Console.ReadLine();
+      
         Console.WriteLine($"Строка {s2}, изменненая в зависимости от четности ее длины");
         del_even_del_odd(ref s2);
         Console.WriteLine(s2);
